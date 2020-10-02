@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Dashboard</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Drawer_Header">Human Resource Manager</string>
+    <string name="Users_Full_Name">Full Name</string>
+    <string name="Home">Home</string>
+    <string name="AddEmployee">Add Employee</string>
+    <string name="EmployeeSection">Employee Section</string>
+    <string name="EditEmployee">Edit Employee</string>
+    <string name="DeleteEmployee">Delete Employee</string>
+    <string name="SearchAndViewEmployees">Search and View Employees</string>
+    <string name="TourGuideRecruitment">Tour Guide Recruitment</string>
+    <string name="TGApplicationReview">Tour Guide Application Review</string>
+    <string name="TGApplicationPreview">Tour Guide Application Preview</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+</resources>

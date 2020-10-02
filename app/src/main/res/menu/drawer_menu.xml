@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/Home" />
+    <item android:title="@string/EmployeeSection">
+        <menu>
+            <item
+                android:id="@+id/addEmployee"
+                android:icon="@drawable/ic_baseline_group_add_24"
+                android:title="@string/AddEmployee" />
+            <item
+                android:id="@+id/editEmployee"
+                android:icon="@drawable/ic_baseline_edit_24"
+                android:title="@string/EditEmployee" />
+            <item
+                android:id="@+id/deleteEmployee"
+                android:icon="@drawable/ic_baseline_delete_24"
+                android:title="@string/DeleteEmployee" />
+            <item
+                android:id="@+id/viewEmployee"
+                android:icon="@drawable/ic_baseline_remove_red_eye_24"
+                android:title="@string/SearchAndViewEmployees" />
+        </menu>
+    </item>
+    <item android:title="@string/TourGuideRecruitment">
+        <menu>
+            <item
+                android:id="@+id/applicationReview"
+                android:icon="@drawable/ic_baseline_group_add_24"
+                android:title="@string/TGApplicationReview" />
+            <item
+                android:id="@+id/applicationPreview"
+                android:icon="@drawable/ic_baseline_group_add_24"
+                android:title="@string/TGApplicationPreview" />
+        </menu>
+    </item>
+
+
+</menu>
