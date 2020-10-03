@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "772588403785",
+    "firebase_url": "https://tripsandtramps-ae27b.firebaseio.com",
+    "project_id": "tripsandtramps-ae27b",
+    "storage_bucket": "tripsandtramps-ae27b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772588403785:android:3bff6fd3c83c2cd6991398",
+        "android_client_info": {
+          "package_name": "com.example.employeetripsandtramps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772588403785-5vt125iduit8imd7pb0uflke17nrquhm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKMH4Rw5Yv3Cd0U2XK-FP_5qywj51gtMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772588403785-5vt125iduit8imd7pb0uflke17nrquhm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772588403785:android:07560cab433200b0991398",
+        "android_client_info": {
+          "package_name": "com.example.financeaccount"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772588403785-ltjm4c3i601u8dk044n212n0euosn91l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.financeaccount",
+            "certificate_hash": "57f0ae3cb12646489a6b07c0eedabcc748857b70"
+          }
+        },
+        {
+          "client_id": "772588403785-5vt125iduit8imd7pb0uflke17nrquhm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKMH4Rw5Yv3Cd0U2XK-FP_5qywj51gtMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772588403785-5vt125iduit8imd7pb0uflke17nrquhm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772588403785:android:6c66311e794ae2d2991398",
+        "android_client_info": {
+          "package_name": "com.example.lecture1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772588403785-5vt125iduit8imd7pb0uflke17nrquhm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKMH4Rw5Yv3Cd0U2XK-FP_5qywj51gtMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772588403785-5vt125iduit8imd7pb0uflke17nrquhm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

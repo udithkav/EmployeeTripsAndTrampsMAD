@@ -15,4 +15,18 @@
     <string name="TGApplicationPreview">Tour Guide Application Preview</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="log_out">Log Out</string>
+    <string name="https_ceylontripsandtramps_com">www.ceylontripsandtramps.com/</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="addManagerialEmployee">Add Employee</string>
+    <string name="fName">First Name</string>
+    <string name="lName">Last Name</string>
+    <string name="dob">Date of Birth</string>
+    <string name="email">Email</string>
+    <string name="mPosition">Position</string>
+    <string name="reasonToRecruit">Reason</string>
+    <string name="add">Add</string>
+    <string name="nic_number">NIC Number</string>
+    <string name="password">Password</string>
 </resources>

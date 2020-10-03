@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/drawer_layout"
+    android:layout_height="match_parent"
+    android:background="#013f61"
+    tools:context=".HomePage"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/draw_header"
+        app:menu="@menu/drawer_menu"
+        android:layout_gravity = "start">
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_expandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#013f61"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#013f61"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#013F61"
+                    app:navigationIcon="@drawable/ic_baseline_menu_24" />
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="30dp"
+                    android:background="#013f61"
+                    android:src="@drawable/ic_baseline_account_circle_24" />
+
+                <TextView
+                    android:id="@+id/showtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="#013f61"
+                    android:gravity="center"
+                    android:hint="Profile"
+                    android:onClick="showmore"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textColorHint="@android:color/holo_blue_light"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/expandable_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="#013f61"
+                    android:gravity="center_horizontal"
+                    android:text="Name:     Udith Kavisinghe"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="#013f61"
+                    android:gravity="center_horizontal"
+                    android:text="Gender:       Male"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="#013f61"
+                    android:gravity="center_horizontal"
+                    android:text="Date of Birth     09/08/1997"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#013f61"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/showtext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#013f61"
+                    android:gravity="center"
+                    android:hint="Job Details"
+                    android:onClick="showmore1"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textColorHint="@android:color/holo_blue_light"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/expandable_view1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#013f61"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="#013f61"
+                    android:gravity="center_horizontal"
+                    android:text="Created on 11 jan 2020"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="#013f61"
+                    android:gravity="center_horizontal"
+                    android:text="Total subscribers 764"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
