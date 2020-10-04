@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".income_details">
+    tools:context=".expenses_details">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
+        android:background="#013f61"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -23,13 +22,12 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="INCOME DETAILS"
+            android:text="Expense Details"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.023" />
@@ -38,63 +36,50 @@
             android:id="@+id/editname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="104dp"
-            android:layout_marginRight="104dp"
-            android:hint="User Name"
-            android:textColorHint="#FFFFFF"
+            android:layout_marginTop="256dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:textColor="@android:color/black"
+            android:hint="User Name"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/editprofit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editid" />
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.006" />
 
         <EditText
             android:id="@+id/editincome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="110dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="Room Reservation"
+            android:hint="Amount"
             android:textColorHint="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/editvehicle"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editname"
-            app:layout_constraintVertical_bias="0.102" />
-
-        <EditText
-            android:id="@+id/editvehicle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Vehicle Details"
-            android:textColorHint="#FFFFFF"
-            android:ems="10"
-            android:inputType="date"
-            app:layout_constraintBottom_toTopOf="@+id/editprofit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editname"
-            app:layout_constraintVertical_bias="0.726" />
+            app:layout_constraintVertical_bias="0.155" />
 
         <EditText
             android:id="@+id/editprofit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Package Details"
-            android:textColorHint="#FFFFFF"
+            android:layout_marginBottom="28dp"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/black"
+            android:hint="Details"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editname"
-            app:layout_constraintVertical_bias="0.534" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.661" />
 
         <Button
             android:id="@+id/button10"
@@ -106,10 +91,10 @@
             android:backgroundTint="@color/color2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.802"
+            app:layout_constraintHorizontal_bias="0.765"
             app:layout_constraintStart_toEndOf="@+id/button11"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.871" />
+            app:layout_constraintVertical_bias="0.85" />
 
         <Button
             android:id="@+id/button11"
@@ -121,26 +106,26 @@
             android:backgroundTint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.099"
+            app:layout_constraintHorizontal_bias="0.12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.871" />
+            app:layout_constraintVertical_bias="0.85" />
 
         <EditText
             android:id="@+id/editid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="71dp"
-            android:ems="10"
-            android:hint="Income ID"
+            android:hint="Expense ID"
             android:textColorHint="#FFFFFF"
+            android:ems="10"
             android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/editname"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.482"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.615" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

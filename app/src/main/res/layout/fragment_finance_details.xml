@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".income_details">
+    tools:context=".finance_details">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
+        android:background="#013f61"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -23,124 +22,130 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="INCOME DETAILS"
+            android:text="Financial Report"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.023" />
+            app:layout_constraintVertical_bias="0.063" />
 
         <EditText
-            android:id="@+id/editname"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="104dp"
-            android:layout_marginRight="104dp"
+            android:layout_marginTop="256dp"
+            android:ems="10"
+            android:inputType="textPersonName"
             android:hint="User Name"
             android:textColorHint="#FFFFFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editid" />
-
-        <EditText
-            android:id="@+id/editincome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="110dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Room Reservation"
-            android:textColorHint="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/editvehicle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editname"
-            app:layout_constraintVertical_bias="0.102" />
-
-        <EditText
-            android:id="@+id/editvehicle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Vehicle Details"
-            android:textColorHint="#FFFFFF"
-            android:ems="10"
-            android:inputType="date"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/editprofit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.482"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editname"
-            app:layout_constraintVertical_bias="0.726" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.006" />
 
         <EditText
-            android:id="@+id/editprofit"
+            android:id="@+id/income"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Package Details"
-            android:textColorHint="#FFFFFF"
+            android:layout_marginBottom="352dp"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:textColor="@android:color/black"
+            android:hint="Income"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.482"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editname"
-            app:layout_constraintVertical_bias="0.534" />
+            app:layout_constraintVertical_bias="0.106" />
+
+        <EditText
+            android:id="@+id/exp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:ems="10"
+            android:hint="Expences"
+            android:inputType="textEmailAddress"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.589" />
+
+        <EditText
+            android:id="@+id/profit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:ems="10"
+            android:hint="Profit"
+            android:inputType="textEmailAddress"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.747" />
 
         <Button
             android:id="@+id/button10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_border1"
+            android:backgroundTint="@color/color2"
             android:text="DELETE"
             android:textSize="18sp"
-            android:backgroundTint="@color/color2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.802"
+            app:layout_constraintHorizontal_bias="0.788"
             app:layout_constraintStart_toEndOf="@+id/button11"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.871" />
+            app:layout_constraintVertical_bias="0.922" />
 
         <Button
             android:id="@+id/button11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_border1"
+            android:backgroundTint="@color/colorAccent"
             android:text="UPDATE"
             android:textSize="18sp"
-            android:backgroundTint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.099"
+            app:layout_constraintHorizontal_bias="0.126"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.871" />
+            app:layout_constraintVertical_bias="0.912" />
 
         <EditText
-            android:id="@+id/editid"
+            android:id="@+id/transaction_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="71dp"
+            android:layout_marginTop="88dp"
             android:ems="10"
-            android:hint="Income ID"
-            android:textColorHint="#FFFFFF"
+            android:hint="Transaction ID"
             android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/editname"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.482"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.573" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
