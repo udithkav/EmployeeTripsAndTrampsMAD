@@ -37,29 +37,14 @@ public class AddEmp extends Fragment {
     Spinner position;
     DatabaseReference reff;
     int maxid=0;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     public AddEmp() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddEmp.
-     */
-    // TODO: Rename and change types and number of parameters
     public static AddEmp newInstance(String param1, String param2) {
         AddEmp fragment = new AddEmp();
         Bundle args = new Bundle();
@@ -68,7 +53,6 @@ public class AddEmp extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,20 +62,13 @@ public class AddEmp extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-
-
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_emp, container, false);
 
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
@@ -110,9 +87,6 @@ public class AddEmp extends Fragment {
         password =(EditText) getView().findViewById(R.id.password);
         add = (Button)getView().findViewById(R.id.addButton);
         position = (Spinner)getView().findViewById(R.id.selectPosition);
-
-
-
         add.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -151,7 +125,6 @@ public class AddEmp extends Fragment {
                 reff.child(String.valueOf(maxid+1)).setValue(emp);
                 Toast.makeText(getActivity(),"Data Succesfully Inserted",Toast.LENGTH_SHORT).show();
 
-                // do something
             }
         });
 
