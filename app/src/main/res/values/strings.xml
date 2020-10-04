@@ -28,5 +28,12 @@
     <string name="reasonToRecruit">Reason</string>
     <string name="add">Add</string>
     <string name="nic_number">NIC Number</string>
+    <string name="update">Update</string>
+    <string name="update_employee">Update Employee</string>
+    <string name="employee_number">Employee Number</string>
+    <string name="occupation">Occupation</string>
     <string name="password">Password</string>
+    <string name="nic">NIC</string>
+    <string name="search">Search</string>
+    <string name="null_data">Null Data</string>
 </resources>

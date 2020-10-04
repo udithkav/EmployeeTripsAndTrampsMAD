@@ -96,7 +96,7 @@ public class AddEmp extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        String[] items = new String[]{"Human Resource Manager", "Inventory Manager","Finance Manager","Workflow Manager"};
+        String[] items = new String[]{"Human Resource Manager", "Inventory Manager","Finance Manager","Workflow Manager","Other"};
         position = (Spinner)getView().findViewById(R.id.selectPosition);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_spinner_dropdown_item, items);

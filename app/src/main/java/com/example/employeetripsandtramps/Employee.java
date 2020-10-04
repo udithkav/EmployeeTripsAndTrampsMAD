@@ -3,10 +3,16 @@ package com.example.employeetripsandtramps;
 import java.util.Date;
 
 public class Employee {
-    String firstName,lastName,email,password,nic,position,dob;
+    String firstName,lastName,email,password,nic,position,dob,empNumber;
     ;
 
+    public String getEmpNumber() {
+        return empNumber;
+    }
 
+    public void setEmpNumber(String empNumber) {
+        this.empNumber = empNumber;
+    }
 
     public String getFirstName() {
         return firstName;
