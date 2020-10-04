@@ -6,12 +6,21 @@ public class Inventory {
         String inventory_type;
         String brand;
         String amout;
+        String id;
 
         public String getPurchaseDate() {
             return purchaseDate;
         }
 
-        public void setPurchaseDate(String purchaseID) {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setPurchaseDate(String purchaseID) {
             this.purchaseDate = purchaseID;
         }
 

@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class AddInventory extends Fragment {
     TextView purchaseDate,inventoryType,inventoryBrand,amountSpent;
+
     Button add;
     DatabaseReference reff;
     int maxid=0;
