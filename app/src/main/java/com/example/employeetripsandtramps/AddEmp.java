@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +37,7 @@ public class AddEmp extends Fragment {
     Button add;
     Spinner position;
     DatabaseReference reff;
+    private FirebaseAuth mAuth;
     int maxid=0;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -87,6 +89,7 @@ public class AddEmp extends Fragment {
         password =(EditText) getView().findViewById(R.id.password);
         add = (Button)getView().findViewById(R.id.addButton);
         position = (Spinner)getView().findViewById(R.id.selectPosition);
+        mAuth = FirebaseAuth.getInstance();
         add.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -114,6 +117,7 @@ public class AddEmp extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             maxid = (int) snapshot.getChildrenCount();
+                            maxid=maxid+1;
                         }
                     }
 
@@ -122,8 +126,12 @@ public class AddEmp extends Fragment {
 
                     }
                 });
-                reff.child(String.valueOf(maxid+1)).setValue(emp);
+
+                reff.child(String.valueOf(maxid)).setValue(emp);
+                mAuth.createUserWithEmailAndPassword(emp.getEmail(), emp.getPassword());
+
                 Toast.makeText(getActivity(),"Data Succesfully Inserted",Toast.LENGTH_SHORT).show();
+                clearControls();
 
             }
         });
@@ -136,5 +144,13 @@ public class AddEmp extends Fragment {
 
 
 
+    }
+    public void clearControls(){
+        firstName.setText("");
+        lastName.setText("");
+        dateOfBirth.setText("");
+        email.setText("");
+        nic.setText("");
+        password.setText("");
     }
 }
