@@ -8,8 +8,8 @@
 
 
 
-    <fragment
-        android:name="com.example.employeetripsandtramps.Work_Details"
+     <fragment
+        android:name="com.example.employeetripsandtramps.AddIncomeDetails"
         android:id="@+id/fragmentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

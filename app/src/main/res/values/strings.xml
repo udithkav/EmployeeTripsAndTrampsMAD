@@ -13,6 +13,7 @@
     <string name="TourGuideRecruitment">Tour Guide Recruitment</string>
     <string name="TGApplicationReview">Tour Guide Application Review</string>
     <string name="TGApplicationPreview">Tour Guide Application Preview</string>
+    <string name="profit">Profit</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="log_out">Log Out</string>
@@ -34,9 +35,25 @@
     <string name="occupation">Occupation</string>
     <string name="password">Password</string>
     <string name="nic">NIC</string>
-    <string name="search">Search</string>
+
     <string name="null_data">Null Data</string>
     <string name="email">Email</string>
     <string name="delete_employees">Delete Employees</string>
     <string name="delete_employee">Delete Employee</string>
+    <string name="add_income_details">Add Income Details</string>
+    <string name="email_address">Email Address</string>
+    <string name="income_amount">Income Amount</string>
+    <string name="room_reservation_amount">Room Reservation Amount</string>
+    <string name="vehicle_reservation_amount">Vehicle Reservation Amount</string>
+    <string name="expense_id">Expense ID</string>
+    <string name="username">Username</string>
+    <string name="amount">Amount</string>
+    <string name="details">Details</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense</string>
+    <string name="save">save</string>
+    <string name="financial_report">Financial Report</string>
+    <string name="search">Search</string>
+    <string name="already_have_account">Already Have Account?</string>
 </resources>
