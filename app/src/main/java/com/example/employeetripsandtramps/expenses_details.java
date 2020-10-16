@@ -32,7 +32,7 @@ public class expenses_details extends Fragment {
 TextView searchExpenseID,userName,amount,details;
 Button update,delete,search;
 DatabaseReference dbRef;
-SearchExpenses expenses;
+SearchExpenses expenses = new SearchExpenses();
 Boolean viewCheck = false;
 
     private static final String ARG_PARAM1 = "param1";
@@ -88,7 +88,8 @@ Boolean viewCheck = false;
             @Override
             public void onClick(View view) {
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Expense");
-                dbRef.child(searchExpenseID.getText().toString().trim());
+                dbRef.child(searchExpenseID.getText().toString().trim()).removeValue();
+                Toast.makeText(getActivity(),"Expense Data Deleted",Toast.LENGTH_LONG).show();
                 viewCheck = false;
             }
         });
@@ -103,10 +104,13 @@ Boolean viewCheck = false;
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
-                            expenses.setExpenseID(searchExpenseID.getText().toString().trim());
-                            expenses.setUsern(snapshot.child("usern").getValue().toString());
-                            expenses.setAmountt(snapshot.child("amountt").getValue().toString());
-                            expenses.setDetails(snapshot.child("details").getValue().toString());
+                            String usernam = snapshot.child("usern").getValue().toString();
+                            String amoun = snapshot.child("amountt").getValue().toString();
+                            String detai = snapshot.child("details").getValue().toString();
+                            expenses.setExpenseID(snapshot.child("expenseID").getValue().toString());
+                            expenses.setUsern(usernam);
+                            expenses.setAmountt(amoun);
+                            expenses.setDetails(detai);
 
                             userName.setText(expenses.getUsern());
                             amount.setText(expenses.getAmountt());
@@ -135,7 +139,7 @@ Boolean viewCheck = false;
             @Override
             public void onClick(View view) {
                 if(viewCheck == true){
-                    final SearchExpenses e1 = null;
+                    SearchExpenses e1 = new SearchExpenses();
                     e1.setUsern(userName.getText().toString().trim());
                     e1.setDetails(details.getText().toString().trim());
                     e1.setAmountt(amount.getText().toString().trim());
