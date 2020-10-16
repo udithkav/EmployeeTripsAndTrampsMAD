@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,30 +37,16 @@ public class AddEmp extends Fragment {
     Button add;
     Spinner position;
     DatabaseReference reff;
+    private FirebaseAuth mAuth;
     int maxid=0;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     public AddEmp() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddEmp.
-     */
-    // TODO: Rename and change types and number of parameters
     public static AddEmp newInstance(String param1, String param2) {
         AddEmp fragment = new AddEmp();
         Bundle args = new Bundle();
@@ -68,7 +55,6 @@ public class AddEmp extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,20 +64,13 @@ public class AddEmp extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-
-
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_emp, container, false);
 
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
@@ -110,9 +89,7 @@ public class AddEmp extends Fragment {
         password =(EditText) getView().findViewById(R.id.password);
         add = (Button)getView().findViewById(R.id.addButton);
         position = (Spinner)getView().findViewById(R.id.selectPosition);
-
-
-
+        mAuth = FirebaseAuth.getInstance();
         add.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -140,6 +117,7 @@ public class AddEmp extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             maxid = (int) snapshot.getChildrenCount();
+                            maxid=maxid+1;
                         }
                     }
 
@@ -148,10 +126,13 @@ public class AddEmp extends Fragment {
 
                     }
                 });
-                reff.child(String.valueOf(maxid+1)).setValue(emp);
-                Toast.makeText(getActivity(),"Data Succesfully Inserted",Toast.LENGTH_SHORT).show();
 
-                // do something
+                reff.child(String.valueOf(maxid)).setValue(emp);
+                mAuth.createUserWithEmailAndPassword(emp.getEmail(), emp.getPassword());
+
+                Toast.makeText(getActivity(),"Data Succesfully Inserted",Toast.LENGTH_SHORT).show();
+                clearControls();
+
             }
         });
 
@@ -163,5 +144,13 @@ public class AddEmp extends Fragment {
 
 
 
+    }
+    public void clearControls(){
+        firstName.setText("");
+        lastName.setText("");
+        dateOfBirth.setText("");
+        email.setText("");
+        nic.setText("");
+        password.setText("");
     }
 }
