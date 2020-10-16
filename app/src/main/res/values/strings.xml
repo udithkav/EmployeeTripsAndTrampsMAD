@@ -14,8 +14,6 @@
     <string name="TGApplicationReview">Tour Guide Application Review</string>
     <string name="TGApplicationPreview">Tour Guide Application Preview</string>
     <string name="profit">Profit</string>
-    <string name="open">open</string>
-    <string name="close">close</string>
     <string name="log_out">Log Out</string>
     <string name="https_ceylontripsandtramps_com">www.ceylontripsandtramps.com/</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
@@ -56,4 +54,6 @@
     <string name="financial_report">Financial Report</string>
     <string name="search">Search</string>
     <string name="already_have_account">Already Have Account?</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>
