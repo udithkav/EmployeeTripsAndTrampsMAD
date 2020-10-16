@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,7 +19,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +32,7 @@ import java.util.HashMap;
  * create an instance of this fragment.
  */
 public class UpdateEmployeeDetails extends Fragment {
-    EditText Empl_Number, f_Name, l_Name, d_O_B, e_M_A_I_L, p_osition, n_i_c, p_a_s_s_wrd;
+    EditText f_Name, l_Name, d_O_B, e_M_A_I_L, p_osition, n_i_c, p_a_s_s_wrd;
     String id;
     EditText search_employee;
     Button searchButton, update;
@@ -151,6 +155,11 @@ public class UpdateEmployeeDetails extends Fragment {
                         String n_ic = n_i_c.getText().toString().trim();
                         String pass_word = p_a_s_s_wrd.getText().toString().trim();
                         String pos_tion = p_osition.getText().toString().trim();
+                        boolean passwordValidation = isValidPassword(pass_word);
+                        boolean nicValidationm = nicValidation(n_ic);
+                        boolean emailValidation = isValid(e_mail);
+                        boolean dateValidation = validateDate(d_ob);
+                        boolean checkFLname = firstAndLastNameValidation(fName,LName);
                         emp.setFirstName(fName);
                         emp.setLastName(LName);
                         emp.setDob(d_ob);
@@ -160,17 +169,45 @@ public class UpdateEmployeeDetails extends Fragment {
                         emp.setPosition(pos_tion);
                         emp.setEmpNumber(search_employee.getText().toString());
 
-                        reff = FirebaseDatabase.getInstance().getReference().child("Employee");
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("dob",emp.getDob());
-                        hashMap.put("email",emp.getEmail());
-                        hashMap.put("firstName",emp.getFirstName());
-                        hashMap.put("lastName",emp.getLastName());
-                        hashMap.put("nic",emp.getNic());
-                        hashMap.put("password",emp.getPassword());
-                        hashMap.put("position",emp.getPosition());
-                        reff.child(String.valueOf(emp.getEmpNumber())).updateChildren(hashMap);
-                        Toast.makeText(getActivity(), "Data Succesfully Updated", Toast.LENGTH_SHORT).show();
+                        if(emailValidation== true && passwordValidation==true && dateValidation==true && nicValidationm==true && checkFLname==true){
+                            reff = FirebaseDatabase.getInstance().getReference().child("Employee");
+                            HashMap hashMap = new HashMap();
+                            hashMap.put("dob",emp.getDob());
+                            hashMap.put("email",emp.getEmail());
+                            hashMap.put("firstName",emp.getFirstName());
+                            hashMap.put("lastName",emp.getLastName());
+                            hashMap.put("nic",emp.getNic());
+                            hashMap.put("password",emp.getPassword());
+                            hashMap.put("position",emp.getPosition());
+                            reff.child(String.valueOf(emp.getEmpNumber())).updateChildren(hashMap);
+                            Toast.makeText(getActivity(), "Data Succesfully Updated", Toast.LENGTH_SHORT).show();
+                            emailValidation = false;
+                            passwordValidation= false;
+                            dateValidation=false;
+                            nicValidationm=false;
+                            checkFLname=false;
+                        }
+                        else{
+                            if(emailValidation== false){
+                                Toast.makeText(getActivity(),"Invalid Email Please Re-enter Email",Toast.LENGTH_SHORT).show();
+                            }
+                            if(passwordValidation==false){
+                                Toast.makeText(getActivity(),"Please a Password with 1-@-n-N and between 8 and 20 characters",Toast.LENGTH_SHORT).show();
+                            }
+                            if(dateValidation==false){
+                                Toast.makeText(getActivity(),"Please enter a valid Date Format: dd/MM/yyyy ",Toast.LENGTH_SHORT).show();
+                            }
+                            if(nicValidationm==false){
+                                Toast.makeText(getActivity(),"Please enter a valid national id card eg: 927173024v ",Toast.LENGTH_SHORT).show();
+                            }
+                            if(checkFLname==false){
+                                Toast.makeText(getActivity(),"First Name or Last Name cannot be empty",Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+
+
                     }
                 });
 
@@ -178,4 +215,50 @@ public class UpdateEmployeeDetails extends Fragment {
             }
         });
     }
+    public static boolean firstAndLastNameValidation(String fName, String lName){
+        if(fName.isEmpty()||lName.isEmpty()){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    public static boolean validateDate(String strDate)
+    {
+        if (strDate.trim().equals(""))
+        {
+            return true;
+        }
+        else
+        {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            simpleDateFormat.setLenient(false);
+            try
+            {
+                Date javaDate = simpleDateFormat.parse(strDate);
+            }
+            catch (ParseException e)
+            {
+                return false;
+            }
+            return true;
+        }
+    }
+    static boolean isValid(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
+    }
+    public static boolean nicValidation(String nic){
+        String regex = "^[0-9]{9}[vVxX]$";
+        return nic.matches(regex);
+    }
+    public static boolean isValidPassword(String password)
+    {
+        String regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
+
 }

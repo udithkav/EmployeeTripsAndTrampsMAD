@@ -100,15 +100,10 @@ public class AddEmp extends Fragment {
                 Employee emp = new Employee();
                 String fName = firstName.getText().toString().trim();
                 String LName = lastName.getText().toString().trim();
-                boolean checkFLname = firstAndLastNameValidation(fName,LName);
                 String d_ob =dateOfBirth.getText().toString().trim();
-                boolean dateValidation = validateDate(d_ob);
                 String e_mail = email.getText().toString().trim();
-                boolean emailValidation = isValid(e_mail);
                 String n_ic = nic.getText().toString().trim();
-                boolean nicValidationm = nicValidation(n_ic);
                 String pass_word = password.getText().toString().trim();
-                boolean passwordValidation = isValidPassword(pass_word);
                 String pos_tion = position.getSelectedItem().toString();
                 emp.setFirstName(fName);
                 emp.setLastName(LName);
@@ -117,6 +112,11 @@ public class AddEmp extends Fragment {
                 emp.setNic(n_ic);
                 emp.setPassword(pass_word);
                 emp.setPosition(pos_tion);
+                boolean passwordValidation = isValidPassword(pass_word);
+                boolean nicValidationm = nicValidation(n_ic);
+                boolean emailValidation = isValid(e_mail);
+                boolean dateValidation = validateDate(d_ob);
+                boolean checkFLname = firstAndLastNameValidation(fName,LName);
 
                 if(emailValidation== true && passwordValidation==true && dateValidation==true && nicValidationm==true && checkFLname==true){
                     reff= FirebaseDatabase.getInstance().getReference().child("Employee");
