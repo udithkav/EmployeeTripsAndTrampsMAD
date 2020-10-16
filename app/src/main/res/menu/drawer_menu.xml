@@ -25,6 +25,62 @@
                 android:title="@string/SearchAndViewEmployees" />
         </menu>
     </item>
+    <item android:title="@string/inventory_section">
+        <menu>
+            <item
+                android:id="@+id/addInventoryButton"
+                android:icon="@drawable/ic_baseline_group_add_24"
+                android:title="@string/add_inventory" />
+            <item
+                android:id="@+id/InvButton"
+                android:icon="@drawable/ic_baseline_remove_red_eye_24"
+                android:title="@string/view_update_delete_inventory" />
+
+        </menu>
+    </item>
+    <item android:title="@string/financial_section">
+        <menu>
+            <item
+                android:id="@+id/createFinancialReport"
+                android:icon="@drawable/ic_baseline_group_add_24"
+                android:title="@string/create_view_financial_report" />
+            <item
+                android:id="@+id/createIncomeDetails"
+                android:icon="@drawable/ic_baseline_group_add_24"
+                android:title="@string/create_view_income_details" />
+            <item
+                android:id="@+id/createExpenseDetails"
+                android:icon="@drawable/ic_baseline_group_add_24"
+                android:title="@string/create_view_expense_details" />
+            <item
+                android:id="@+id/deleteUpdateFinancialReport"
+                android:icon="@drawable/ic_baseline_remove_red_eye_24"
+                android:title="@string/create_view_expense_details" />
+            <item
+                android:id="@+id/deleteUpdateIncomeDetails"
+                android:icon="@drawable/ic_baseline_remove_red_eye_24"
+                android:title="@string/create_view_expense_details" />
+            <item
+                android:id="@+id/deleteUpdateExpenseDetails"
+                android:icon="@drawable/ic_baseline_remove_red_eye_24"
+                android:title="@string/create_view_expense_details" />
+
+
+        </menu>
+    </item>
+    <item android:title="@string/work_assign_section">
+        <menu>
+            <item
+                android:id="@+id/workAssignButton"
+                android:icon="@drawable/ic_baseline_group_add_24"
+                android:title="Assign Work" />
+            <item
+                android:id="@+id/otherWorkAssign"
+                android:icon="@drawable/ic_baseline_remove_red_eye_24"
+                android:title="View/Update/Delete Work Details" />
+        </menu>
+    </item>
+
 
     <item
         android:id="@+id/logout"

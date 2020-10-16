@@ -56,4 +56,12 @@
     <string name="already_have_account">Already Have Account?</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="create_view_expense_details">Create/View Expense Details</string>
+    <string name="create_view_income_details">Create/View Income Details</string>
+    <string name="create_view_financial_report">Create/View Financial Report</string>
+    <string name="view_update_delete_inventory">View/Update/Delete Inventory</string>
+    <string name="add_inventory">Add Inventory</string>
+    <string name="inventory_section">Inventory Section</string>
+    <string name="financial_section">Financial Section</string>
+    <string name="work_assign_section">Work Assign Section</string>
 </resources>
