@@ -19,6 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link AddInventory#newInstance} factory method to
@@ -92,6 +96,7 @@ public class AddInventory extends Fragment {
                 Inventory inv = new Inventory();
 
                 String purchase_Date =purchaseDate.getText().toString().trim() ;
+                Boolean valDate = validateDate(purchase_Date);
                 String inventory_type=inventoryType.getText().toString().trim() ;
                 String brand = inventoryBrand.getText().toString().trim() ;
                 String amout= amountSpent.getText().toString();
@@ -100,26 +105,56 @@ public class AddInventory extends Fragment {
                 inv.setInventory_type(inventory_type);
                 inv.setPurchaseDate(purchase_Date);
 
-                reff = FirebaseDatabase.getInstance().getReference().child("Inventory");
-                reff.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists()){
-                            maxid =(int) dataSnapshot.getChildrenCount();
+                if(valDate==true){
+                    reff = FirebaseDatabase.getInstance().getReference().child("Inventory");
+                    reff.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if(dataSnapshot.exists()){
+                                maxid =(int) dataSnapshot.getChildrenCount();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
-                maxid=maxid+1;
-                reff.child(String.valueOf(maxid)).setValue(inv);
-                Toast.makeText(getActivity(),"Data Successfully Inserted", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    maxid=maxid+1;
+                    reff.child(String.valueOf(maxid)).setValue(inv);
+                    Toast.makeText(getActivity(),"Data Successfully Inserted", Toast.LENGTH_SHORT).show();
+                    valDate =false;
+                }
+                else
+                {
+                    Toast.makeText(getActivity(),"Please Enter a Valid day dd/MM/YYYY", Toast.LENGTH_SHORT).show();
+                }
+
+            ;
 
             }
         });
 
+    }
+    public static boolean validateDate(String strDate)
+    {
+        if (strDate.trim().equals(""))
+        {
+            return true;
+        }
+        else
+        {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            simpleDateFormat.setLenient(false);
+            try
+            {
+                Date javaDate = simpleDateFormat.parse(strDate);
+            }
+            catch (ParseException e)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
