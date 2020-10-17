@@ -38,6 +38,7 @@ public class AddEmp extends Fragment {
     EditText firstName,lastName,dateOfBirth,email,nic,password;
     Button add;
     Spinner position;
+    String userTypeRequired = "Human Resource Manager";
     DatabaseReference reff;
     private FirebaseAuth mAuth;
     int maxid=0;

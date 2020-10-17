@@ -27,7 +27,9 @@ public class Login extends AppCompatActivity {
     SessionManager sessionManager;
     Button login;
     FirebaseAuth firebaseAuth;
-    Employee employee = new Employee();
+    public static final String EXTRA_MESSAGE = "email";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,30 +59,11 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    DatabaseReference ref;
-                                    ref = FirebaseDatabase.getInstance().getReference("Employee");
-
-                                    ref.orderByChild("email").equalTo(email_value).addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            employee.setEmpNumber(snapshot.getKey());
-                                            employee.setEmail(snapshot.child("email").getValue().toString());
-                                            employee.setFirstName(snapshot.child("firstName").getValue().toString());
-                                            employee.setLastName(snapshot.child("lastName").getValue().toString());
-                                            employee.setPosition(snapshot.child("position").getValue().toString());
-                                            employee.setDob(snapshot.child("dob").getValue().toString());
-                                            employee.setNic(snapshot.child("nic").getValue().toString());
-
-
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
+                                    Toast.makeText(Login.this, "Authentication Sucess.", Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                    intent.putExtra(EXTRA_MESSAGE,email_value);
+                                    startActivity(intent);
                                 } else {
                                     Toast.makeText(Login.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();

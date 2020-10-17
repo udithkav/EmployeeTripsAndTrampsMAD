@@ -34,6 +34,7 @@ import java.util.regex.Pattern;
 public class UpdateEmployeeDetails extends Fragment {
     EditText f_Name, l_Name, d_O_B, e_M_A_I_L, p_osition, n_i_c, p_a_s_s_wrd;
     String id;
+    String userTypeRequired = "Human Resource Manager";
     EditText search_employee;
     Button searchButton, update;
     DatabaseReference reff;

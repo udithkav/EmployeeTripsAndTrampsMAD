@@ -30,6 +30,7 @@ public class SearchEmployee extends Fragment {
     TextView Empl_Number,f_Name,l_Name,d_O_B,e_M_A_I_L,p_osition,n_i_c,p_a_s_s_wrd;
     EditText search_employee;
     Button searchButton;
+    String userTypeRequired = "Human Resource Manager";
     DatabaseReference reff;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

@@ -11,8 +11,11 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawerLayout;
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        String userTypeRequiredHR = "Human Resource Manager";
+        String userTypeRequiredIM = "Inventory Manager";
+        String userTypeRequiredFM = "Finance Manager";
+        String userTypeRequiredWF = "Workflow Manager";
+        String currentUserType = null;
+
+        sessionManager = new SessionManager(this);
+        HashMap<String,String> user = sessionManager.getUserDetail();
+        currentUserType = user.get("POSITION");
 
         if(menuItem.getItemId() ==R.id.home){
             fragmentManager = getSupportFragmentManager();
@@ -52,31 +65,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment,new EmployeeHome());
             fragmentTransaction.commit();
         }
-        if(menuItem.getItemId() ==R.id.addEmployee){
+        if(menuItem.getItemId() ==R.id.addEmployee ){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,new AddEmp());
             fragmentTransaction.commit();
-
         }
-        if(menuItem.getItemId() ==R.id.editEmployee){
+
+        if(menuItem.getItemId() ==R.id.editEmployee ){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,new UpdateEmployeeDetails());
             fragmentTransaction.commit();
         }
-        if(menuItem.getItemId() ==R.id.deleteEmployee){
+
+        if(menuItem.getItemId() ==R.id.deleteEmployee ){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,new DeleteEmployee());
             fragmentTransaction.commit();
         }
+
         if(menuItem.getItemId() ==R.id.viewEmployee){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,new SearchEmployee());
             fragmentTransaction.commit();
         }
+
         if(menuItem.getItemId() ==R.id.addInventoryButton){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
