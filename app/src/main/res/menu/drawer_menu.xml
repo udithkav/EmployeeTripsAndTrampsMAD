@@ -55,15 +55,15 @@
             <item
                 android:id="@+id/deleteUpdateFinancialReport"
                 android:icon="@drawable/ic_baseline_remove_red_eye_24"
-                android:title="@string/create_view_expense_details" />
+                android:title="Delete/Update Financial Report" />
             <item
                 android:id="@+id/deleteUpdateIncomeDetails"
                 android:icon="@drawable/ic_baseline_remove_red_eye_24"
-                android:title="@string/create_view_expense_details" />
+                android:title="Delete/Update Income Details" />
             <item
                 android:id="@+id/deleteUpdateExpenseDetails"
                 android:icon="@drawable/ic_baseline_remove_red_eye_24"
-                android:title="@string/create_view_expense_details" />
+                android:title="Delete/Update Expense Details" />
 
 
         </menu>

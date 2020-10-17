@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Switch;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
         if(menuItem.getItemId() ==R.id.home){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
@@ -75,6 +77,68 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment,new SearchEmployee());
             fragmentTransaction.commit();
         }
+        if(menuItem.getItemId() ==R.id.addInventoryButton){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new AddInventory());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.InvButton){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new inventory_details());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.workAssignButton){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new Work_Assign());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.otherWorkAssign){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new Work_assign_details());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.createExpenseDetails){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new add_expenses_details());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.createIncomeDetails){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new AddIncomeDetails());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.createFinancialReport){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new financial_report());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.deleteUpdateExpenseDetails){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new expenses_details());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.deleteUpdateFinancialReport){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new finance_details());
+            fragmentTransaction.commit();
+        }
+        if(menuItem.getItemId() ==R.id.deleteUpdateIncomeDetails){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new income_details());
+            fragmentTransaction.commit();
+        }
+
+
 
 
         return true;
