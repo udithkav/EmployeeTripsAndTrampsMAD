@@ -27,6 +27,11 @@ import java.util.HashMap;
  * create an instance of this fragment.
  */
 public class finance_details extends Fragment {
+    EditText tid,uname,income,expense,profit;
+    EditText tNumber;
+    Button search;
+    Button update, delete;
+    DatabaseReference reff;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -76,4 +81,88 @@ public class finance_details extends Fragment {
         return inflater.inflate(R.layout.fragment_finance_details, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        tid = (EditText) getView().findViewById(R.id.transaction_id);
+        uname = (EditText) getView().findViewById(R.id.username);
+        income = (EditText) getView().findViewById(R.id.income);
+        expense = (EditText) getView().findViewById(R.id.exp);
+        profit = (EditText) getView().findViewById(R.id.profit);
+        search =(Button) getView().findViewById(R.id.search_report);
+        update =(Button) getView().findViewById(R.id.button11);
+        delete =(Button) getView().findViewById(R.id.button10);
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FinancialReportSearch frs = new FinancialReportSearch();
+                frs.setTRANSECTION_ID(tid.getText().toString());
+                reff = FirebaseDatabase.getInstance().getReference().child("finance");
+                reff.child(frs.getTRANSECTION_ID()).removeValue();
+            }
+        });
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap hashMap = new HashMap();
+                reff = FirebaseDatabase.getInstance().getReference().child("finance");
+                FinancialReportSearch fs = new FinancialReportSearch();
+
+                fs.setUSERNAME(uname.getText().toString().trim());
+                fs.setINCOME(income.getText().toString().trim());
+                fs.setEXPENSES(expense.getText().toString().trim());
+                fs.setPROFIT(profit.getText().toString().trim());
+                fs.setTRANSECTION_ID(tid.getText().toString().trim());
+
+                hashMap.put("expenses",fs.getEXPENSES());
+                hashMap.put("income",fs.getINCOME());
+                hashMap.put("profit",fs.getPROFIT());
+                hashMap.put("username",fs.getUSERNAME());
+
+                reff.child(fs.getTRANSECTION_ID()).updateChildren(hashMap);
+                Toast.makeText(getActivity(),"Data Successfully Updated", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reff = FirebaseDatabase.getInstance().getReference().child("finance").child(tid.getText().toString());
+                reff.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            FinancialReportSearch fins = new FinancialReportSearch();
+                            fins.setPROFIT(snapshot.child("profit").getValue().toString());
+                            fins.setEXPENSES(snapshot.child("expenses").getValue().toString());
+                            fins.setINCOME(snapshot.child("income").getValue().toString());
+                            fins.setUSERNAME(snapshot.child("username").getValue().toString());
+                            uname.setText(fins.getUSERNAME());
+                            income.setText(fins.getINCOME());
+                            expense.setText(fins.getEXPENSES());
+                            profit.setText(fins.getPROFIT());
+
+
+                        }
+                        else{
+                            uname.setText("Inventory Doesn't Exist");
+                            income.setText("Inventory Doesn't Exist");
+                            expense.setText("Inventory Doesn't Exist");
+                            profit.setText("Inventory Doesn't Exist");
+                            Toast.makeText(getActivity(),"Inventory Doesn't Exist", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
+
+
     }
+}
