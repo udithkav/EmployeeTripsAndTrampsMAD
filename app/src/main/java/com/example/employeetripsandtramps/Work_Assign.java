@@ -97,36 +97,50 @@ public class Work_Assign extends Fragment {
                 String role1 = jobRole.getText().toString().trim();
                 String gender = gender1.getText().toString().trim();
 
+                Boolean emailcheck = isValid(name);
+
                 asn.setGender(gender);
                 asn.setRole(role1);
                 asn.setEmp_id(emp_id);
                 asn.setName(name);
 
-                reff = FirebaseDatabase.getInstance().getReference().child("Assign");
-                reff.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            maxid = (int) dataSnapshot.getChildrenCount();
-                            maxid = maxid + 1;
+                if(emailcheck==true){
+                    reff = FirebaseDatabase.getInstance().getReference().child("Assign");
+                    reff.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                maxid = (int) dataSnapshot.getChildrenCount();
+                                maxid = maxid + 1;
+                            }
+
                         }
 
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        }
+                    });
 
-                    }
-                });
+                    reff.child(String.valueOf(maxid)).setValue(asn);
+                    Toast.makeText(getActivity(), "Data Successfully Inserted", Toast.LENGTH_SHORT).show();
+                    emailcheck=false;
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "Enter Valid Email", Toast.LENGTH_SHORT).show();
+                }
 
-                reff.child(String.valueOf(maxid)).setValue(asn);
-                Toast.makeText(getActivity(), "Data Successfully Inserted", Toast.LENGTH_SHORT).show();
             }
 
         });
 
 
 
+    }
+    static boolean isValid(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
     }
 
 }
